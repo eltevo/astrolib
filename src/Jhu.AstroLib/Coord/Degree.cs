@@ -173,7 +173,7 @@ namespace Jhu.AstroLib.Coord
         /// <param name="deg"></param>
         /// <param name="min"></param>
         /// <param name="sec"></param>
-        private static void GetDegreeParts(double value, out double deg, out double min, out double sec)
+        public static void GetDegreeParts(double value, out double deg, out double min, out double sec)
         {
             value += Constants.DegreeTolerance;
 
@@ -189,7 +189,7 @@ namespace Jhu.AstroLib.Coord
         /// <param name="hour"></param>
         /// <param name="min"></param>
         /// <param name="sec"></param>
-        private static void GetHourParts(double value, out double hour, out double min, out double sec)
+        public static void GetHourParts(double value, out double hour, out double min, out double sec)
         {
             value = value / 15 + Constants.DegreeTolerance;
 

@@ -9,28 +9,28 @@ namespace Jhu.AstroLib.Sql
     public partial class UserDefinedFunctions
     {
         [Microsoft.SqlServer.Server.SqlFunction]
-        public static SqlDouble ConvertHmsToDegree(SqlString hms)
+        public static SqlDouble ConvertDegreeHmsToDec(SqlString hms)
         {
             var deg = Coord.Degree.ParseHms(hms.Value);
             return new SqlDouble(deg.Value);
         }
 
         [Microsoft.SqlServer.Server.SqlFunction]
-        public static SqlDouble ConvertDmsToDegree(SqlString dms)
+        public static SqlDouble ConvertDegreeDmsToDec(SqlString dms)
         {
             var deg = Coord.Degree.ParseDms(dms.Value);
             return new SqlDouble(deg.Value);
         }
 
         [Microsoft.SqlServer.Server.SqlFunction]
-        public static SqlString ConvertDegreeToHms(SqlDouble value)
+        public static SqlString ConvertDegreeDecToHms(SqlDouble value)
         {
             var deg = new Coord.Degree() { Value = value.Value };
             return new SqlString(deg.ToString(Coord.DegreeFormatInfo.DefaultHours));
         }
 
         [Microsoft.SqlServer.Server.SqlFunction]
-        public static SqlString ConvertDegreeToDms(SqlDouble value)
+        public static SqlString ConvertDegreeDecToDms(SqlDouble value)
         {
             var deg = new Coord.Degree() { Value = value.Value };
             return new SqlString(deg.ToString(Coord.DegreeFormatInfo.DefaultDegrees));
