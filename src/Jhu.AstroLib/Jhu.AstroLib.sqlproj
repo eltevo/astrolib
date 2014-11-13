@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{2b519c2b-f6ff-4de3-90f1-1f20cfdb3d97}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -17,11 +17,13 @@
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultSchema>astro</DefaultSchema>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -53,5 +55,32 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Time" />
+    <Folder Include="Coord" />
+    <Folder Include="Cosmo" />
+    <Folder Include="Sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Time\Jd.cs" />
+    <Compile Include="Sql\TimeJd.cs" />
+    <Compile Include="Time\Mjd.cs" />
+    <Compile Include="Time\Utc.cs" />
+    <Compile Include="Sql\TimeMjd.cs" />
+    <Compile Include="Sql\TimeUtc.cs" />
+    <Compile Include="Time\Tai.cs" />
+    <Compile Include="Sql\TimeTai.cs" />
+    <Compile Include="Time\JulianDateConverter.cs" />
+    <Compile Include="Time\LeapSecondsConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Jhu.AstroLib.publish.xml" />
   </ItemGroup>
 </Project>
