@@ -20,7 +20,7 @@ namespace Jhu.AstroLib.Time
 
         public static implicit operator Utc(DateTime dateTime)
         {
-            return new Utc() { value = dateTime.ToUniversalTime() };
+            return new Utc() { value = dateTime };
         }
 
         public static Utc FromParts(int year, int month, int day, int hour, int minute, int second, double millisecond)

@@ -20,7 +20,7 @@ namespace Jhu.AstroLib.Time
 
         public static implicit operator Tai(DateTime dateTime)
         {
-            return new Tai() { value = dateTime.ToUniversalTime() };
+            return new Tai() { value = dateTime };
         }
 
         public static Tai FromParts(int year, int month, int day, int hour, int minute, int second, double millisecond)
