@@ -30,7 +30,7 @@ namespace Jhu.AstroLib.Time
 
         public static Utc FromTai(Tai tai)
         {
-            return LeapSecondsConverter.SubtractLeapSeconds(tai.Value);
+            return Tai.SubtractLeapSeconds(tai.Value);
         }
 
         public static Utc FromJd(Jd jd)

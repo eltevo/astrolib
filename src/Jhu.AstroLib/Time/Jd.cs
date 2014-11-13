@@ -5,6 +5,9 @@ namespace Jhu.AstroLib.Time
     [Serializable]
     public struct Jd
     {
+        private static readonly DateTime JulianDateEpoch = new DateTime(2000, 1, 1, 12, 0, 0);
+        private static readonly double JulianDateOrigin = 2451545.0;
+
         private double value;
 
         public double Value
@@ -23,6 +26,16 @@ namespace Jhu.AstroLib.Time
             return new Jd() { value = jd };
         }
 
+        internal static double FromDateTime(DateTime dateTime)
+        {
+            return JulianDateOrigin + (dateTime - JulianDateEpoch).TotalDays;
+        }
+
+        internal static DateTime ToDateTime(double jd)
+        {
+            return JulianDateEpoch.AddDays(jd - JulianDateOrigin);
+        }
+
         public static Jd FromParts(int year, int month, int day, int hour, int minute, int second, double millisecond)
         {
             var tai = Tai.FromParts(year, month, day, hour, minute, second, millisecond);
@@ -37,7 +50,7 @@ namespace Jhu.AstroLib.Time
 
         public static Jd FromTai(Tai tai)
         {
-            return JulianDateConverter.FromDateTime(tai.Value);
+            return FromDateTime(tai.Value);
         }
 
         public static Jd FromMjd(Mjd mjd)

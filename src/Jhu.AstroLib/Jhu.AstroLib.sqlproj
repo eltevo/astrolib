@@ -73,8 +73,6 @@
     <Compile Include="Time\Mjd.cs" />
     <Compile Include="Time\Utc.cs" />
     <Compile Include="Time\Tai.cs" />
-    <Compile Include="Time\JulianDateConverter.cs" />
-    <Compile Include="Time\LeapSecondsConverter.cs" />
     <Compile Include="Time\FineTime.cs" />
     <Compile Include="Time\FineTimeConverter.cs" />
     <Compile Include="Sql\TimeFunctions.cs" />
