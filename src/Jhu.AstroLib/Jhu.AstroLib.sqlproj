@@ -82,6 +82,7 @@
     <Compile Include="Coord\Enum.cs" />
     <Compile Include="Coord\Constants.cs" />
     <Compile Include="Sql\DegreeFunctions.cs" />
+    <Compile Include="Sql\PointFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema.sql" />
