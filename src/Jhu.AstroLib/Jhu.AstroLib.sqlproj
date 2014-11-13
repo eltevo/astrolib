@@ -76,6 +76,8 @@
     <Compile Include="Sql\TimeTai.cs" />
     <Compile Include="Time\JulianDateConverter.cs" />
     <Compile Include="Time\LeapSecondsConverter.cs" />
+    <Compile Include="Time\FineTime.cs" />
+    <Compile Include="Time\FineTimeConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema.sql" />
