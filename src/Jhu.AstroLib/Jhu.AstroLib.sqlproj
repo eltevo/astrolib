@@ -76,6 +76,12 @@
     <Compile Include="Time\FineTime.cs" />
     <Compile Include="Time\FineTimeConverter.cs" />
     <Compile Include="Sql\TimeFunctions.cs" />
+    <Compile Include="Coord\Point.cs" />
+    <Compile Include="Coord\Degree.cs" />
+    <Compile Include="Coord\DegreeFormatInfo.cs" />
+    <Compile Include="Coord\Enum.cs" />
+    <Compile Include="Coord\Constants.cs" />
+    <Compile Include="Sql\DegreeFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema.sql" />
