@@ -25,14 +25,14 @@ namespace Jhu.AstroLib.Sql
         [Microsoft.SqlServer.Server.SqlFunction]
         public static SqlString ConvertDegreeDecToHms(SqlDouble value)
         {
-            var deg = new Coord.Degree() { Value = value.Value };
+            var deg = new Coord.Degree(value.Value);
             return new SqlString(deg.ToString(Coord.DegreeFormatInfo.DefaultHours));
         }
 
         [Microsoft.SqlServer.Server.SqlFunction]
         public static SqlString ConvertDegreeDecToDms(SqlDouble value)
         {
-            var deg = new Coord.Degree() { Value = value.Value };
+            var deg = new Coord.Degree(value.Value);
             return new SqlString(deg.ToString(Coord.DegreeFormatInfo.DefaultDegrees));
         }
     }

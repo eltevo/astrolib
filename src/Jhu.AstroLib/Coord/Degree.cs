@@ -14,6 +14,11 @@ namespace Jhu.AstroLib.Coord
             set { this.value = value; }
         }
 
+        public Degree(double value)
+        {
+            this.value = value; 
+        }
+
         public static explicit operator double(Degree degree)
         {
             return degree.value;
@@ -21,7 +26,7 @@ namespace Jhu.AstroLib.Coord
 
         public static implicit operator Degree(double degree)
         {
-            return new Degree() { value = degree };
+            return new Degree(degree);
         }
 
         public static Degree ParseHms(string value)
