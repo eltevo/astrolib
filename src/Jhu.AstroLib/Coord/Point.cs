@@ -36,7 +36,7 @@ namespace Jhu.AstroLib.Coord
             {
                 if (theta == Constants.SqlNaN)
                 {
-                    Cartesian2Polar(x, y, z, out theta, out phi);
+                    Cartesian2Spherical(x, y, z, out theta, out phi);
                 }
 
                 return theta;
@@ -50,7 +50,7 @@ namespace Jhu.AstroLib.Coord
             {
                 if (phi == Constants.SqlNaN)
                 {
-                    Cartesian2Polar(x, y, z, out theta, out phi);
+                    Cartesian2Spherical(x, y, z, out theta, out phi);
                 }
 
                 return phi;
@@ -64,7 +64,7 @@ namespace Jhu.AstroLib.Coord
             {
                 if (x == Constants.SqlNaN)
                 {
-                    Polar2Cartesian(theta, phi, out x, out y, out z);
+                    Spherical2Cartesian(theta, phi, out x, out y, out z);
                 }
 
                 return x;
@@ -78,7 +78,7 @@ namespace Jhu.AstroLib.Coord
             {
                 if (y == Constants.SqlNaN)
                 {
-                    Polar2Cartesian(theta, phi, out x, out y, out z);
+                    Spherical2Cartesian(theta, phi, out x, out y, out z);
                 }
 
                 return y;
@@ -92,7 +92,7 @@ namespace Jhu.AstroLib.Coord
             {
                 if (z == Constants.SqlNaN)
                 {
-                    Polar2Cartesian(theta, phi, out x, out y, out z);
+                    Spherical2Cartesian(theta, phi, out x, out y, out z);
                 }
 
                 return z;
@@ -126,15 +126,15 @@ namespace Jhu.AstroLib.Coord
             };
         }
 
-        public static void Cartesian2Polar(double x, double y, double z, out double theta, out double phi)
+        public static void Cartesian2Spherical(double x, double y, double z, out double theta, out double phi)
         {
-            Cartesian2PolarRadians(x, y, z, out theta, out phi);
+            Cartesian2SphericalRadians(x, y, z, out theta, out phi);
 
             theta *= Constants.Radian2Degree;
             phi *= Constants.Radian2Degree;
         }
 
-        public static void Cartesian2PolarRadians(double x, double y, double z, out double theta, out double phi)
+        public static void Cartesian2SphericalRadians(double x, double y, double z, out double theta, out double phi)
         {
             double epsilon = Constants.DoublePrecision2x;
             double rdec;
@@ -196,12 +196,12 @@ namespace Jhu.AstroLib.Coord
             }
         }
 
-        public static void Polar2Cartesian(double theta, double phi, out double x, out double y, out double z)
+        public static void Spherical2Cartesian(double theta, double phi, out double x, out double y, out double z)
         {
-            Polar2CartesianRadians(theta * Constants.Degree2Radian, phi * Constants.Degree2Radian, out x, out y, out z);
+            Spherical2CartesianRadians(theta * Constants.Degree2Radian, phi * Constants.Degree2Radian, out x, out y, out z);
         }
 
-        public static void Polar2CartesianRadians(double theta, double phi, out double x, out double y, out double z)
+        public static void Spherical2CartesianRadians(double theta, double phi, out double x, out double y, out double z)
         {
             double epsilon = Constants.DoublePrecision2x;
 
